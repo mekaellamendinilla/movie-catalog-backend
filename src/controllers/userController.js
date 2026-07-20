@@ -1,8 +1,5 @@
 const db = require("../config/db");
 
-// ===============================
-// GET ALL USERS
-// ===============================
 exports.getUsers = (req, res) => {
     const sql = `
     SELECT
@@ -26,9 +23,6 @@ exports.getUsers = (req, res) => {
     });
 };
 
-// ===============================
-// GET USER BY ID
-// ===============================
 exports.getUserById = (req, res) => {
     const sql = `
     SELECT
@@ -55,13 +49,9 @@ exports.getUserById = (req, res) => {
     });
 };
 
-// ===============================
-// UPDATE USER DETAILS
-// ===============================
 exports.updateUser = (req, res) => {
     const { first_name, last_name, username, email, role_id } = req.body;
 
-    // Kung nagpasa ng role_id, isama sa update, kung hindi, panatilihin ang dati
     const sql = `
         UPDATE users 
         SET 
@@ -94,9 +84,6 @@ exports.updateUser = (req, res) => {
     });
 };
 
-// ===============================
-// DELETE USER
-// ===============================
 exports.deleteUser = (req, res) => {
     db.query("DELETE FROM users WHERE id = ?", [req.params.id], (err) => {
         if (err) return res.status(500).json(err);

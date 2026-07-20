@@ -4,7 +4,6 @@ const userController = require("../controllers/userController");
 const authMiddleware = require("../middleware/authMiddleware");
 const roleMiddleware = require("../middleware/roleMiddleware");
 
-// GET ALL USERS
 router.get(
     "/",
     authMiddleware,
@@ -12,7 +11,6 @@ router.get(
     userController.getUsers
 );
 
-// GET USER BY ID
 router.get(
     "/:id",
     authMiddleware,
@@ -20,7 +18,6 @@ router.get(
     userController.getUserById
 );
 
-// UPDATE USER
 router.put(
     "/:id",
     authMiddleware,
@@ -28,7 +25,6 @@ router.put(
     userController.updateUser
 );
 
-// DELETE USER
 router.delete(
     "/:id",
     authMiddleware,

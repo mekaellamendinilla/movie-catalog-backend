@@ -1,11 +1,7 @@
 const express = require("express");
-
 const router = express.Router();
-
 const userController = require("../controllers/userController");
-
 const authMiddleware = require("../middleware/authMiddleware");
-
 const roleMiddleware = require("../middleware/roleMiddleware");
 
 // GET ALL USERS
@@ -30,14 +26,6 @@ router.put(
     authMiddleware,
     roleMiddleware("Admin"),
     userController.updateUser
-);
-
-// UPDATE USER ROLE
-router.put(
-    "/:id/role",
-    authMiddleware,
-    roleMiddleware("Admin"),
-    userController.updateUserRole
 );
 
 // DELETE USER
